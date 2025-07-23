@@ -1,0 +1,183 @@
+/* ProjectCard Styles */
+.card.project-card {
+  height: 100%;
+  background-color: #151a21; /* Colore di sfondo scuro */
+  border: 1px solid #243243; /* Bordo coerente con il tema */
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: #e2e8f0; /* Colore del testo di default per la card */
+}
+
+.card.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 217, 255, 0.15);
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background-color: #243243; /* Sfondo per immagini mancanti */
+  overflow: hidden;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.project-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  flex-grow: 1; /* Fa in modo che il corpo della card occupi lo spazio disponibile */
+}
+
+.project-card-title {
+  font-size: 1.15rem; /* Leggermente più piccolo */
+  margin-bottom: 0.5rem;
+  font-weight: 600; /* Più leggibile */
+  color: #e2e8f0; /* Assicura che il titolo sia bianco */
+}
+
+.project-card-description {
+  font-size: 0.875rem;
+  color: #94a3b8; /* Colore testo secondario */
+  flex-grow: 1; /* Spinge i bottoni in basso */
+  margin-bottom: 1rem;
+  /* Limita il testo a 3 righe per mantenere l'altezza uniforme */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 52px; /* Altezza minima per 3 righe di testo */
+}
+
+.project-tech-container {
+  margin-bottom: 1.25rem; /* Più spazio prima dei bottoni */
+}
+
+.project-tech-badge {
+  background: #1e293b;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  font-size: .7rem;
+  letter-spacing: .5px;
+  border-radius: 50rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  display: inline-block;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto; /* Allinea i bottoni in fondo */
+}
+
+.project-btn-demo {
+  color: #0f1115 !important;
+  font-weight: 600;
+}
+
+/* ProjectsGrid Styles */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.projects-grid-item {
+  /* Nessuno stile specifico necessario qui */
+}
+
+/* ProjectDetailPage Styles */
+.project-detail-tech-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-detail-tech-badge {
+  background: #1e293b;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  font-size: .8rem;
+  border-radius: 50rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+.project-detail-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 1.5rem;
+  background-color: #243243;
+  overflow: hidden;
+  border-radius: 0.375rem;
+}
+
+.project-detail-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-detail-description {
+  color: #94a3b8;
+  max-width: 70ch;
+  margin-bottom: 1rem;
+}
+
+.project-detail-markdown-container {
+  margin-top: 3rem;
+}
+
+.project-detail-markdown {
+  background-color: #151a21;
+  border: 1px solid #243243;
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  color: #e2e8f0;
+}
+
+.project-detail-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.project-detail-btn-demo {
+  color: #0f1115 !important;
+  font-weight: 600;
+}

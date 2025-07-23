@@ -1,0 +1,48 @@
+.hero-section {
+  padding: 3rem 0;
+  padding-top: 7rem; /* offset for fixed navbar */
+}
+
+.hero-container {
+  padding: 1.5rem 0;
+}
+
+.hero-content {
+  /* Bootstrap equivalent: col-lg-9 col-xl-8 */
+}
+
+.hero-title {
+  /* Bootstrap equivalent: display-5 fw-bold lh-tight */
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-text {
+  /* Bootstrap equivalent: lead mt-4 text-secondary */
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  color: #6c757d;
+}
+
+.hero-buttons {
+  /* Bootstrap equivalent: d-flex gap-3 flex-wrap mt-3 */
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.hero-btn-primary {
+  /* Bootstrap equivalent: text-dark fw-semibold px-4 */
+  color: #212529 !important;
+  font-weight: 600;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.hero-btn-secondary {
+  /* Bootstrap equivalent: px-4 */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}

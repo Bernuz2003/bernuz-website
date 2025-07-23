@@ -1,0 +1,84 @@
+/* ML Lab Card Styles - Mirrored from Projects.css */
+.card.ml-lab-card {
+  height: 100%;
+  background-color: #151a21;
+  border: 1px solid #243243;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: #e2e8f0;
+}
+
+.card.ml-lab-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 217, 255, 0.15);
+}
+
+.ml-lab-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  background-color: #243243;
+  overflow: hidden;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.ml-lab-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ml-lab-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.ml-lab-card-title {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.ml-lab-card-teaser {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 52px;
+}
+
+.ml-lab-tags-container {
+  margin-bottom: 1.25rem;
+}
+
+.ml-lab-tag-badge {
+  background: #1e293b;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  font-size: .7rem;
+  letter-spacing: .5px;
+  border-radius: 50rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  display: inline-block;
+}
+
+.ml-lab-button-container {
+  margin-top: auto; /* Allinea il bottone in fondo */
+}
