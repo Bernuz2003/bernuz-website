@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { getProjectBySlug } from '../data/projects';
 import Section from '../components/Section';
 import { Button, Spinner } from 'react-bootstrap';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import Markdown from '../components/Markdown'; // Importa il componente Markdown
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -66,9 +65,7 @@ export default function ProjectDetailPage() {
           {!md ? (
             <Spinner animation="border" variant="info" />
           ) : (
-            <article className="markdown-body bg-dark border border-secondary rounded-2 p-4">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{md}</ReactMarkdown>
-            </article>
+            <Markdown source={md} />
           )}
         </div>
       )}
@@ -87,7 +84,7 @@ export default function ProjectDetailPage() {
           Codice
         </Button>
         <Button as={Link} to="/projects" variant="outline-light">
-          ← Torna ai progetti
+          ← Indietro
         </Button>
       </div>
     </Section>

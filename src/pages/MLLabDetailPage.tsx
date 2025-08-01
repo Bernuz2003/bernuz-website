@@ -34,12 +34,7 @@ export default function MLLabDetailPage() {
   }
 
   return (
-    <Section title={lab.title} lead={lab.teaser}>
-      {lab.image && (
-        <div className="ratio ratio-16x9 mb-4 bg-secondary">
-          <img src={lab.image} alt={lab.title} style={{ objectFit: 'cover' }} />
-        </div>
-      )}
+    <Section title={lab.title} lead="">
 
       {!md ? (
         <Spinner animation="border" variant="info" />
@@ -48,8 +43,8 @@ export default function MLLabDetailPage() {
       )}
 
       <div className="d-flex gap-3 flex-wrap mt-4">
-        <Button as={Link} to="/" variant="outline-light">
-          ← Torna alla home
+        <Button as={Link} to="/ml-labs" variant="outline-light">
+          ← Indietro
         </Button>
       </div>
     </Section>

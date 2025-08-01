@@ -74,3 +74,12 @@ a:hover { text-decoration: underline; }
   border: 1px solid #243243;
   padding: .5rem .75rem;
 }
+
+/* Offset per lo scroll con navbar fissa */
+#about, #ml, #projects, #contact {
+  scroll-margin-top: 100px;
+}
+
+.page-header-section {
+  padding-top: 7rem; /* Aggiunge spazio per la navbar fissa, come nella Hero section */
+}

@@ -40,6 +40,17 @@ export default function MLGrid({ limit }: MLGridProps) {
                 >
                   Apri
                 </Button>
+                {lab.repoUrl && (
+                  <Button
+                    href={lab.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="sm"
+                    variant="outline-info"
+                  >
+                    Codice
+                  </Button>
+                )}
               </div>
             </Card.Body>
           </Card>

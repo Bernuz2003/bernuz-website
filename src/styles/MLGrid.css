@@ -80,5 +80,8 @@
 }
 
 .ml-lab-button-container {
-  margin-top: auto; /* Allinea il bottone in fondo */
+  margin-top: auto; /* Allinea i bottoni in fondo */
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }

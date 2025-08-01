@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "bootstrap": "^5.3.6",
     "bootstrap-icons": "^1.11.3",
     "github-markdown-css": "^5.8.1",

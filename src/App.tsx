@@ -2,9 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SiteNavbar from './components/SiteNavbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage.tsx';
-import AboutPage from './pages/AboutPage.tsx';
 import ProjectsPage from './pages/ProjectsPage.tsx';
-import ContactPage from './pages/ContactPage.tsx';
 import MLLabDetailPage from './pages/MLLabDetailPage.tsx';
 import MLLabsPage from './pages/MLLabsPage.tsx'; 
 import ProjectDetailPage from './pages/ProjectDetailPage.tsx';
@@ -15,10 +13,8 @@ export default function App() {
       <SiteNavbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="/contact" element={<ContactPage />} />
         <Route path="/ml-labs" element={<MLLabsPage />} /> 
         <Route path="/ml-labs/:slug" element={<MLLabDetailPage />} />
       </Routes>

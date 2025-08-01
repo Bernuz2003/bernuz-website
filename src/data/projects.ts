@@ -18,10 +18,10 @@ export const projects: Project[] = [
     description: 'Visualizzatore interattivo dei principali algoritmi di pathfinding su griglia.',
     tech: ['React', 'Vite', 'TypeScript', 'CSS Modules'],
     demoUrl: 'https://pathfining-visualizer.vercel.app',
-    repoUrl: 'https://github.com/Bernuz2003/pathfinding-visualizer',
-    image: '/proj_screens/pathfinding-visualizer.png',
+    repoUrl: 'https://github.com/Bernuz2003/Pathfining-Visualizer.git',
+    image: '/proj_screens/Pathfinding_visualizer.png',
     longDescription: 'Strumento educativo per esplorare il funzionamento degli algoritmi di ricerca come A*, Dijkstra, BFS, DFS e Greedy. Permette di definire punto di partenza, arrivo e ostacoli, visualizzando il processo passo-passo su una griglia dinamica e responsive.',
-    readmePath: '/projects_md/pathfinding-visualizer.md'
+    readmePath: '/projects_md/pathfinding-visulizer.md'
   },
   {
     title: 'Sortify – Sorting Visualizer',
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     tech: ['React', 'Vite', 'TypeScript', 'CSS'],
     demoUrl: 'https://sortify-sorting-algorithm-visualize.vercel.app',
     repoUrl: 'https://github.com/Bernuz2003/Sortify-Sorting-Algorithm-Visualizer',
-    image: '/proj_screens/sortify.png',
+    image: '/proj_screens/Sortify.png',
     longDescription: 'Permette di confrontare algoritmi di ordinamento modificando dimensione array, velocità, distribuzione dei valori e osservando passo per passo.',
     readmePath: '/projects_md/sortify.md'
   },
@@ -41,19 +41,19 @@ export const projects: Project[] = [
     tech: ['HTML', 'CSS', 'JavaScript'],
     demoUrl: 'https://gioco-della-sfortuna.vercel.app',
     repoUrl: 'https://github.com/Bernuz2003/Gioco_della_Sfortuna',
-    image: '/proj_screens/gioco-sfortuna.png',
+    image: '/proj_screens/Gioco_della_sfortuna.png',
     longDescription:
       'Single‑page web‑game che mette alla prova la tua “fortuna”: posiziona carte sfortunate in ordine corretto prima che scada il tempo. Supporta modalità demo anonima e partite complete per utenti loggati.',
     readmePath: '/projects_md/gioco-della-sfortuna.md'
   },
   {
-    title: 'Il Pistrellista',
-    slug: 'il-pistrellista',
+    title: 'Il Piastrellista',
+    slug: 'il-piastrellista',
     description: 'Applicazione interattiva per layout e pattern di piastrellatura configurabili.',
     tech: ['React', 'Vite', 'TypeScript', 'Tailwind'],
     demoUrl: 'https://il-piastrellista.vercel.app',
     repoUrl: 'https://github.com/Bernuz2003/Il-Piastrellista',
-    image: '/proj_screens/il-piastrellista.png',
+    image: '/proj_screens/Il_piastrellista.png',
     longDescription: 'Strumento sperimentale per generare, modificare e visualizzare pattern di piastrellatura con parametri regolabili. Focus su UI rapida e render efficiente.',
     readmePath: '/projects_md/il-piastrellista.md'
   }

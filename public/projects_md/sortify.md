@@ -1,7 +1,5 @@
 # Sorting Algorithm Visualizer
 
-![Sorting Visualizer](https://github.com/Bernuz2003/Sortify-Sorting-Algorithm-Visualizer/blob/master/media/screen_Sortify.png)
-
 > Un'applicazione interattiva per visualizzare e comprendere il funzionamento degli algoritmi di ordinamento.
 
 ## **Descrizione**
@@ -45,13 +43,6 @@ Segui questi semplici passi per eseguire il progetto in locale:
 
 5. **Visualizza nel browser**  
    Apri il link esposto nel terminale.
-
----
-
-## **Video Dimostrativo**
-[Guarda il video dimostrativo](https://github.com/Bernuz2003/Sortify-Sorting-Algorithm-Visualizer/blob/master/project/media/reg_Sortify.mp4)
-
-<video controls src="https://github.com/Bernuz2003/Sortify-Sorting-Algorithm-Visualizer/blob/master/project/media/reg_Sortify.mp4" title="Sortify-demo"></video>
 
 ---
 
