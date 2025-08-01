@@ -86,8 +86,9 @@
   flex-wrap: wrap;
 }
 
+/* Stile carosello SOLO per la HomePage su mobile */
 @media (max-width: 767px) {
-  .g-4 { /* Target della Row in MLGrid */
+  .home-carousel-section .ml-labs-grid {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -95,11 +96,24 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .g-4::-webkit-scrollbar {
+  .home-carousel-section .ml-labs-grid::-webkit-scrollbar {
     display: none;
   }
-  .g-4 > .col, .g-4 > [class*="col-"] { /* Target delle Col */
+  .home-carousel-section .ml-labs-grid > .col, 
+  .home-carousel-section .ml-labs-grid > [class*="col-"] {
     flex: 0 0 90% !important;
     scroll-snap-align: center;
+  }
+}
+
+/* Griglia a 2 colonne su mobile per le pagine dedicate (es. /ml-labs) */
+@media (max-width: 767px) {
+  .ml-labs-grid:not(.home-carousel-section .ml-labs-grid) {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+  .ml-labs-grid:not(.home-carousel-section .ml-labs-grid) > .col,
+  .ml-labs-grid:not(.home-carousel-section .ml-labs-grid) > [class*="col-"] {
+    width: 50%;
   }
 }

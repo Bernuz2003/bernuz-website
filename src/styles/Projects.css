@@ -99,8 +99,9 @@
   gap: 1.5rem;
 }
 
+/* Stile carosello SOLO per la HomePage su mobile */
 @media (max-width: 767px) {
-  .projects-grid {
+  .home-carousel-section .projects-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -109,12 +110,20 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
-  .projects-grid::-webkit-scrollbar {
+  .home-carousel-section .projects-grid::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-  .projects-grid-item {
+  .home-carousel-section .projects-grid-item {
     flex: 0 0 90%; /* Ogni card occupa il 90% della larghezza */
     scroll-snap-align: center; /* Centra la card durante lo scroll */
+  }
+}
+
+/* Griglia a 2 colonne su mobile per le pagine dedicate (es. /projects) */
+@media (max-width: 767px) {
+  .projects-grid:not(.home-carousel-section .projects-grid) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }
 

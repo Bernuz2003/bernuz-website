@@ -81,7 +81,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="ml" title="Machine Learning Labs" lead=""
+      <Section 
+        id="ml" 
+        title="Machine Learning Labs" 
+        lead=""
+        className="home-carousel-section" // <-- Aggiungi questa classe
         titleAction={
           <Link to="/ml-labs" className="btn btn-outline-info btn-sm">
             Vedi tutti &rarr;
@@ -101,7 +105,11 @@ export default function HomePage() {
         <MLGrid limit={3} />
       </Section>
 
-      <Section id="projects" title="Web Applications" lead=""
+      <Section 
+        id="projects" 
+        title="Web Applications" 
+        lead=""
+        className="home-carousel-section" // <-- Aggiungi questa classe
         titleAction={
           <Link to="/projects" className="btn btn-outline-info btn-sm">
             Vedi tutti &rarr;
