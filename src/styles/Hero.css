@@ -46,3 +46,22 @@
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 6rem; /* Riduce lo spazio per la navbar su mobile */
+    padding-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem; /* Rende il titolo più piccolo su mobile */
+  }
+
+  .hero-text {
+    font-size: 1.1rem; /* Rende il testo leggermente più piccolo */
+  }
+
+  .hero-buttons {
+    justify-content: center; /* Centra i bottoni su mobile */
+  }
+}

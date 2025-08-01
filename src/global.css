@@ -83,3 +83,22 @@ a:hover { text-decoration: underline; }
 .page-header-section {
   padding-top: 7rem; /* Aggiunge spazio per la navbar fissa, come nella Hero section */
 }
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .page-header-section {
+    padding-top: 6rem;
+  }
+
+  #about, #ml, #projects, #contact {
+    scroll-margin-top: 80px;
+  }
+
+  h2.h2 {
+    font-size: 1.75rem;
+  }
+}
