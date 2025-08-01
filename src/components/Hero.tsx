@@ -12,23 +12,23 @@ export default function Hero() {
             Esploro tecnologie, algoritmi e soluzioni innovative.
           </h1>
           <p className="hero-text">
-            Studente di Ingegneria Informatica al Politecnico di Torino. Hub personale per progetti accademici, esperimenti di programmazione, visualizzazioni interattive e applicazioni web. Dal machine learning ai sorting visualizer, un mix di soluzioni pratiche e creatività tecnica.
+            Hub personale per progetti accademici, esperimenti di programmazione, visualizzazioni interattive e applicazioni web. Dal machine learning ai sorting visualizer, un mix di soluzioni pratiche e creatività tecnica.
           </p>
           <div className="hero-buttons">
             <Button 
               as={Link} 
-              to="/projects" 
+              to="/ml-labs" 
               variant="info" 
               className="hero-btn-primary"
             >
-              Esplora Progetti
+              ML Labs
             </Button>
             <Button 
-              href="/CV.pdf" 
+              href="/projects" 
               variant="outline-info" 
               className="hero-btn-secondary"
             >
-              Scarica CV
+              Web Apps
             </Button>
           </div>
         </div>

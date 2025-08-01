@@ -34,7 +34,16 @@ export default function MLLabDetailPage() {
   }
 
   return (
-    <Section title={lab.title} lead="">
+    <Section title={lab.title} lead="" className='page-header-section'>
+
+      {/* tag tech */}
+      <div className="mb-4 d-flex gap-2 flex-wrap">
+        {lab.tags.map(t => (
+          <span key={t} className="badge-tech badge rounded-pill px-3 py-2">
+            {t}
+          </span>
+        ))}
+      </div>
 
       {!md ? (
         <Spinner animation="border" variant="info" />

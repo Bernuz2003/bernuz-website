@@ -61,9 +61,9 @@ export default function HomePage() {
     <>
       <Hero />
       <Section id="about" title="Chi sono" lead="">
-        <p className="text-secondary">Studente di Ingegneria Informatica al Politecnico di Torino con una formazione completa che spazia dai sistemi a basso livello all'intelligenza artificiale, mantenendo sempre vivo l'interesse per l'innovazione tecnologica.</p>
-        <p className="text-secondary">Questo sito raccoglie progetti e sperimentazioni nate durante il mio percorso accademico e personale. Il corso di Ingegneria Informatica mi ha permesso di esplorare l'informatica a 360°: dalla programmazione di sistema e reti alla sicurezza informatica, dai database ai microcontrollori, dall'analisi degli algoritmi al machine learning.</p>
-        <p className="text-secondary">Questa formazione trasversale mi ha dato una visione d'insieme che applico nei miei progetti, spaziando tra diverse tecnologie e domini. Attualmente sto concentrando maggiori energie sul Machine Learning e AI, ma rimango sempre curioso verso ogni aspetto dell'informatica moderna.</p>
+        <p className="text-secondary">Sono uno studente di Ingegneria Informatica al Politecnico di Torino, affascinato dalla capacità del software di modellare e risolvere problemi complessi. La mia curiosità mi spinge a esplorare l'informatica in tutte le sue forme, dai meccanismi interni di un sistema operativo fino alle architetture di intelligenza artificiale.</p>
+        <p className="text-secondary">Questo sito è il mio taccuino digitale: una raccolta di progetti nati per dare una forma concreta a concetti teorici. Qui troverai esperimenti che spaziano dalla visualizzazione di algoritmi alla classificazione biometrica, riflettendo un percorso che unisce la programmazione di sistema, le reti e l'analisi dei dati.</p>
+        <p className="text-secondary">Ogni progetto è un'opportunità per imparare e applicare una visione d'insieme. Sebbene il mio interesse attuale sia rivolto principalmente al Machine Learning, credo che le soluzioni più innovative nascano dall'intersezione di discipline diverse. Spero che questa raccolta possa essere uno spunto di ispirazione.</p>
 
         {/* Competenze grid */}
         <h3 className="h6 text-uppercase text-info mt-5 mb-3">Competenze principali</h3>

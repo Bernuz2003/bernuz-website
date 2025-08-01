@@ -12,7 +12,7 @@ export const mlLabs: MLLab[] = [
   {
     title: 'Dimensionality Reduction',
     slug: 'dimensionality-reduction',
-    teaser: 'Analisi di PCA e LDA per la riduzione dimensionale, dimostrando come la PCA possa fungere da pre-processing efficace per migliorare la classificazione LDA.',
+    teaser: "Confronto tra PCA e LDA che dimostra come ridurre da 6 a 4 dimensioni mantenendo il 90.8% di accuratezza nella classificazione biometrica.",
     image: '/mlLabs_logos/PCA_LDA_logo.png',
     tags: ['PCA', 'LDA', 'Feature Extraction', 'SVD'],
     mdPath: '/mlLabs_md/01_PCA_LDA.md',
@@ -22,7 +22,7 @@ export const mlLabs: MLLab[] = [
   {
     title: 'Univariate Density Estimation',
     slug: 'univariate-density-estimation',
-    teaser: 'Modellizzazione di ogni feature tramite stime di massima verosimiglianza (MLE) per distribuzioni Gaussiane, svelando le caratteristiche più discriminanti a livello individuale.',
+    teaser: "Modellazione Gaussiana feature-by-feature tramite MLE: scopri come media e varianza rivelano i pattern discriminanti nascosti nei dati biometrici",
     image: '/mlLabs_logos/density_esitmation.png',
     tags: ['MLE', 'Gaussian Distribution', 'Density Estimation', 'Univariate'],
     mdPath: '/mlLabs_md/02_Density_estimation.md',
@@ -32,7 +32,7 @@ export const mlLabs: MLLab[] = [
   {
     title: 'Multivariate Gaussian Classifiers',
     slug: 'multivariate-gaussian-classifiers',
-    teaser: 'Confronto tra classificatori generativi (MVG, Naive Bayes, Tied) per svelare la struttura di covarianza delle classi e dimostrare l\'efficacia del Naive Bayes con feature poco correlate.',
+    teaser: "Classificatori generativi basati su Bayes: scopri come la scelta della matrice di covarianza (Full, Naive, o Tied) sveli la vera struttura dei dati e determini il modello vincente.",
     image: '/mlLabs_logos/MVG_logo.png',
     tags: ['MVG', 'Naive Bayes', 'Tied Covariance', 'Generative Models'],
     mdPath: '/mlLabs_md/03_MVG.md',

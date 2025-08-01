@@ -31,7 +31,7 @@ export default function ProjectDetailPage() {
     );
 
   return (
-    <Section title={project.title} lead={project.description}>
+    <Section title={project.title} lead="" className='page-header-section'>
       {/* tag tech */}
       <div className="mb-4 d-flex gap-2 flex-wrap">
         {project.tech.map(t => (
@@ -40,24 +40,6 @@ export default function ProjectDetailPage() {
           </span>
         ))}
       </div>
-
-      {/* immagine hero */}
-      {project.image && (
-        <div className="ratio ratio-16x9 mb-4 bg-secondary">
-          <img
-            src={project.image}
-            alt={project.title}
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-      )}
-
-      {/* introduzione breve */}
-      {project.longDescription && (
-        <p className="text-secondary" style={{ maxWidth: '70ch' }}>
-          {project.longDescription}
-        </p>
-      )}
 
       {/* --- README RENDERED --- */}
       {project.readmePath && (
