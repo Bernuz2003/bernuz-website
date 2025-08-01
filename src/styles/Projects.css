@@ -99,6 +99,25 @@
   gap: 1.5rem;
 }
 
+@media (max-width: 767px) {
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1rem; /* Spazio per la scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .projects-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  .projects-grid-item {
+    flex: 0 0 90%; /* Ogni card occupa il 90% della larghezza */
+    scroll-snap-align: center; /* Centra la card durante lo scroll */
+  }
+}
+
 @media (min-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);

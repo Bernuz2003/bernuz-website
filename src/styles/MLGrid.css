@@ -85,3 +85,21 @@
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+
+@media (max-width: 767px) {
+  .g-4 { /* Target della Row in MLGrid */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .g-4::-webkit-scrollbar {
+    display: none;
+  }
+  .g-4 > .col, .g-4 > [class*="col-"] { /* Target delle Col */
+    flex: 0 0 90% !important;
+    scroll-snap-align: center;
+  }
+}
