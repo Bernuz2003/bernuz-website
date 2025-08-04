@@ -39,7 +39,6 @@ export default function HomePage() {
     setError(null);
     setIsSent(false);
 
-    // !!! SOSTITUISCI CON I TUOI VALORI DA EMAILJS !!!
     const serviceID = 'service_sjd3ku4';
     const templateID = 'template_1akquw8';
     const publicKey = '1_0E712SRg_gpF4w-';

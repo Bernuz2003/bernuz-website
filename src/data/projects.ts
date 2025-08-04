@@ -21,7 +21,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/Bernuz2003/Pathfining-Visualizer.git',
     image: '/proj_screens/Pathfinding_visualizer.png',
     longDescription: 'Strumento educativo per esplorare il funzionamento degli algoritmi di ricerca come A*, Dijkstra, BFS, DFS e Greedy. Permette di definire punto di partenza, arrivo e ostacoli, visualizzando il processo passo-passo su una griglia dinamica e responsive.',
-    readmePath: '/projects_md/pathfinding-visulizer.md'
+    readmePath: '/projects_md/pathfinding-visualizer.md'
   },
   {
     title: 'Sortify – Sorting Visualizer',

@@ -96,10 +96,6 @@ Questo comando crea una cartella `dist` con i file pronti per essere distribuiti
 
 ---
 
-## **Video Dimostrativo**
-<video controls src="https://github.com/Bernuz2003/Il-Piastrellista/blob/master/media/il_piastrellista_demo.mp4" title="Il-Piastrellista-demo"></video>
-
----
 
 ## Contribuire
 
