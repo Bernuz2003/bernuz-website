@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Accordion } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import '../styles/HomePage.css';
 import Hero from '../components/Hero';
@@ -51,12 +52,24 @@ export default function HomePage() {
 
         {/* Competenze grid */}
         <h3 className="h6 text-uppercase text-info mt-5 mb-3">Competenze principali</h3>
-        <CompetencesGrid competences={competences} />
+        <div className="d-md-none">
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Mostra competenze</Accordion.Header>
+              <Accordion.Body>
+                <CompetencesGrid competences={competences} />
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </div>
+        <div className="d-none d-md-block">
+          <CompetencesGrid competences={competences} />
+        </div>
       </Section>
 
-      <Section 
-        id="ml" 
-        title="Machine Learning Labs" 
+      <Section
+        id="ml"
+        title="Machine Learning Labs"
         lead=""
         className="home-carousel-section" // <-- Aggiungi questa classe
         titleAction={
@@ -78,9 +91,9 @@ export default function HomePage() {
         <MLGrid limit={3} />
       </Section>
 
-      <Section 
-        id="projects" 
-        title="Web Applications" 
+      <Section
+        id="projects"
+        title="Web Applications"
         lead=""
         className="home-carousel-section" // <-- Aggiungi questa classe
         titleAction={
