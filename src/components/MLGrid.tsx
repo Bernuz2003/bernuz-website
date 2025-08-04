@@ -31,15 +31,12 @@ export default function MLGrid({ limit }: MLGridProps) {
                 ))}
               </div>
               <div className="ml-lab-button-container">
-                <Button
-                  as={Link}
+                <Link
                   to={`/ml-labs/${lab.slug}`}
-                  size="sm"
-                  variant="info"
-                  className="text-dark fw-semibold"
+                  className="btn btn-info text-dark fw-semibold btn-sm"
                 >
                   Apri
-                </Button>
+                </Link>
                 {lab.repoUrl && (
                   <Button
                     href={lab.repoUrl}
