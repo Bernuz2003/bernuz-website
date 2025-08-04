@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProjectBySlug } from '../data/projects';
 import Section from '../components/Section';
@@ -7,6 +7,7 @@ import Markdown from '../components/Markdown'; // Importa il componente Markdown
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const project = getProjectBySlug(slug || '');
   const [md, setMd] = useState<string | null>(null);
 
@@ -65,7 +66,7 @@ export default function ProjectDetailPage() {
         <Button href={project.repoUrl} target="_blank" variant="outline-info">
           Codice
         </Button>
-        <Button as={Link} to="/projects" variant="outline-light">
+        <Button onClick={() => navigate('/projects')} variant="outline-light">
           ← Indietro
         </Button>
       </div>

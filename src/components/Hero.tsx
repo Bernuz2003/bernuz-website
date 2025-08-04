@@ -1,8 +1,10 @@
 import { Container, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './../styles/Hero.css';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <div className="hero-gradient hero-section">
       <Container className="hero-container">
@@ -16,15 +18,14 @@ export default function Hero() {
           </p>
           <div className="hero-buttons">
             <Button 
-              as={Link} 
-              to="/ml-labs" 
+              onClick={() => navigate('/ml-labs')}
               variant="info" 
               className="hero-btn-primary"
             >
               ML Labs
             </Button>
             <Button 
-              href="/projects" 
+              onClick={() => navigate('/projects')}
               variant="outline-info" 
               className="hero-btn-secondary"
             >

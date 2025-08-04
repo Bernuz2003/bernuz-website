@@ -11,7 +11,7 @@ export default function MLGrid({ limit }: MLGridProps) {
   const labsToShow = limit ? mlLabs.slice(0, limit) : mlLabs;
 
   return (
-    <Row className="ml-labs-grid">
+    <Row className="g-4 ml-labs-grid">
       {labsToShow.map(lab => (
         <Col key={lab.slug} xs={12} md={6} lg={4}>
           <Card className="ml-lab-card">

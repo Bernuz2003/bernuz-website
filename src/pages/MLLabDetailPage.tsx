@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Section from '../components/Section';
 import { mlLabs } from '../data/mlLabs';
@@ -7,6 +7,7 @@ import Markdown from '../components/Markdown';
 
 export default function MLLabDetailPage() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const lab = mlLabs.find(l => l.slug === (slug || ''));
   const [md, setMd] = useState<string | null>(null);
 
@@ -52,7 +53,7 @@ export default function MLLabDetailPage() {
       )}
 
       <div className="d-flex gap-3 flex-wrap mt-4">
-        <Button as={Link} to="/ml-labs" variant="outline-light">
+        <Button onClick={() => navigate('/ml-labs')} variant="outline-light">
           ← Indietro
         </Button>
       </div>
