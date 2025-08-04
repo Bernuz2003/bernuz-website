@@ -92,6 +92,17 @@
   font-weight: 600;
 }
 
+@media screen and (max-width: 768px) {
+  .project-card-description,
+  .project-tech-container {
+    display: none;
+  }
+
+  .project-card-body {
+    padding: 1rem;
+  }
+}
+
 /* ProjectsGrid Styles */
 .projects-grid {
   display: grid;

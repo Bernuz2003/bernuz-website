@@ -24,6 +24,18 @@
   gap: 1rem;
 }
 
+@media screen and (max-width: 768px) {
+  .competence-card {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .competences-grid {
+    gap: 1.25rem;
+  }
+}
+
 @media (min-width: 768px) {
   .competences-grid {
     grid-template-columns: repeat(2, 1fr);
