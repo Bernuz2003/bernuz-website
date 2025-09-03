@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Accordion } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import '../styles/HomePage.css';
 import Hero from '../components/Hero';
@@ -75,6 +74,14 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="text-info text-decoration-none"
           >GitHub</a>
+        </p>
+        <p className="text-secondary">
+          <strong>Appunti Teorici:</strong>{" "}
+          <a
+            href="/mlLabs_data/Appunti_ML.pdf"
+            download="Appunti_ML.pdf"
+            className="text-info text-decoration-none"
+          >Appunti_ML.pdf</a>
         </p>
         <MLGrid limit={3} />
       </Section>
