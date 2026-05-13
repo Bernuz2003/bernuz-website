@@ -1,8 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProjectBySlug, projects } from '../data/projects';
-import Section from '../components/Section';
-import { Button, Spinner } from 'react-bootstrap';
+import { Container, Button, Spinner } from 'react-bootstrap';
 import Markdown from '../components/Markdown';
 import TypographicList from '../components/TypographicList';
 import type { TypographicItem } from '../components/TypographicList';
@@ -40,8 +39,8 @@ export default function ProjectDetailPage() {
   }));
 
   return (
-    <Section title="Web Applications" lead="Applicazioni interattive e visualizzatori algoritmici." className='page-header-section'>
-      <div className="row mt-5">
+    <Container className="pt-4 pb-5">
+      <div className="row">
         <div className="col-lg-4 pe-lg-4 d-none d-lg-block" style={{ borderRight: '1px solid rgba(255,255,255,0.05)' }}>
           <h4 className="h6 text-secondary text-uppercase mb-4 font-mono">Index</h4>
           <TypographicList items={projectItems} />
@@ -82,6 +81,6 @@ export default function ProjectDetailPage() {
           )}
         </div>
       </div>
-    </Section>
+    </Container>
   );
 }

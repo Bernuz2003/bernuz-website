@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { projects } from '../data/projects';
+import { mlLabs } from '../data/mlLabs';
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
@@ -27,7 +29,9 @@ export default function CommandPalette() {
 
   if (!open) return null;
 
-  const commands = [
+  const isMatrix = document.body.classList.contains('matrix-rain-active');
+
+  const staticCommands = [
     { name: 'Home', action: () => navigate('/') },
     { name: 'Machine Learning Labs', action: () => navigate('/ml-labs') },
     { name: 'Web Applications', action: () => navigate('/projects') },
@@ -36,10 +40,35 @@ export default function CommandPalette() {
       document.body.classList.toggle('crt-mode'); 
       window.dispatchEvent(new Event('crtToggled'));
       setOpen(false); 
+    } },
+    { name: '> help', action: () => {
+      setQuery('> theme');
+    } },
+    { name: `> theme: matrix ${isMatrix ? '[ATTIVO]' : ''}`, action: () => {
+      document.body.classList.toggle('matrix-rain-active');
+      document.body.classList.toggle('matrix-theme');
+      setOpen(false);
     } }
   ];
 
-  const filtered = commands.filter(c => c.name.toLowerCase().includes(query.toLowerCase()));
+  const projectCommands = projects.map(p => ({
+    name: `App: ${p.title}`,
+    action: () => navigate(`/projects/${p.slug}`)
+  }));
+
+  const mlCommands = mlLabs.map(l => ({
+    name: `Lab: ${l.title}`,
+    action: () => navigate(`/ml-labs/${l.slug}`)
+  }));
+
+  const allCommands = [...staticCommands, ...projectCommands, ...mlCommands];
+
+  // Mostra solo i comandi principali all'avvio (query vuota)
+  const commandsToShow = query.trim() === '' 
+    ? staticCommands 
+    : allCommands;
+
+  const filtered = commandsToShow.filter(c => c.name.toLowerCase().includes(query.toLowerCase()));
 
   const handleInputKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {

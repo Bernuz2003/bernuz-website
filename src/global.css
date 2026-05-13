@@ -1,4 +1,5 @@
-@import 'github-markdown-css/github-markdown-light.css';  /* o dark */
+@import 'github-markdown-css/github-markdown-light.css';
+/* o dark */
 
 /* KaTeX */
 @import "katex/dist/katex.min.css";
@@ -16,7 +17,7 @@
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Fira Code', monospace;
 }
@@ -27,7 +28,7 @@
 
 body {
   background-color: var(--bg-primary);
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(13, 202, 240, 0.1) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
   background-attachment: fixed;
@@ -77,7 +78,8 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(18, 50, 18, 0.15); /* Tinta verde molto leggera globale */
+  background: rgba(18, 50, 18, 0.15);
+  /* Tinta verde molto leggera globale */
   opacity: 0;
   z-index: 2;
   pointer-events: none;
@@ -91,8 +93,8 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  background: 
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), 
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%),
     linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
   z-index: 9999;
   background-size: 100% 4px, 6px 100%;
@@ -105,13 +107,26 @@ body {
 }
 
 @keyframes crt-flicker {
-  0% { opacity: 0.95; }
-  50% { opacity: 0.85; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0.95;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 .hover-white:hover {
   color: #fff !important;
@@ -122,28 +137,32 @@ a:hover { text-decoration: underline; }
   background: transparent;
 }
 
-.card-glow:hover { 
-  box-shadow: 0 0 20px var(--accent-cyan-glow); 
+.card-glow:hover {
+  box-shadow: 0 0 20px var(--accent-cyan-glow);
   border-color: var(--accent-cyan);
 }
 
-.badge-tech { 
-  background: rgba(13, 202, 240, 0.05); 
-  color: var(--accent-cyan); 
-  border: 1px solid rgba(13, 202, 240, 0.2); 
-  font-size: .75rem; 
-  letter-spacing: .5px; 
+.badge-tech {
+  background: rgba(13, 202, 240, 0.05);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(13, 202, 240, 0.2);
+  font-size: .75rem;
+  letter-spacing: .5px;
   font-family: var(--font-mono);
   padding: 0.3em 0.6em;
   border-radius: 6px;
   transition: all 0.3s ease;
 }
+
 .badge-tech:hover {
   background: rgba(13, 202, 240, 0.1);
   box-shadow: 0 0 10px var(--accent-cyan-glow);
 }
 
-.section-padding { padding-top:4rem; padding-bottom:4rem; }
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
 
 
 /* Stile markdown (minimal) */
@@ -153,22 +172,28 @@ a:hover { text-decoration: underline; }
   font-size: 0.95rem;
   font-family: var(--font-sans);
 }
-.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: 600;
 }
+
 .markdown-body code {
   background: #1b2532;
   padding: .15rem .35rem;
   border-radius: 4px;
   font-size: 0.85em;
 }
+
 .markdown-body pre code {
   background: transparent;
   padding: 0;
   font-size: .9rem;
 }
+
 .markdown-body pre {
   background: #0f1115;
   border: 1px solid #243243;
@@ -177,17 +202,20 @@ a:hover { text-decoration: underline; }
   overflow: auto;
   margin: 1.25rem 0;
 }
+
 .markdown-body img {
   max-width: 100%;
   border-radius: 6px;
   margin: 1rem 0;
   border: 1px solid #243243;
 }
+
 .markdown-body table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
 }
+
 .markdown-body table th,
 .markdown-body table td {
   border: 1px solid #243243;
@@ -195,12 +223,16 @@ a:hover { text-decoration: underline; }
 }
 
 /* Offset per lo scroll con navbar fissa */
-#about, #ml, #projects, #contact {
+#about,
+#ml,
+#projects,
+#contact {
   scroll-margin-top: 100px;
 }
 
 .page-header-section {
-  padding-top: 7rem; /* Aggiunge spazio per la navbar fissa, come nella Hero section */
+  padding-top: 7rem;
+  /* Aggiunge spazio per la navbar fissa, come nella Hero section */
 }
 
 @media (max-width: 768px) {
@@ -213,11 +245,52 @@ a:hover { text-decoration: underline; }
     padding-top: 6rem;
   }
 
-  #about, #ml, #projects, #contact {
+  #about,
+  #ml,
+  #projects,
+  #contact {
     scroll-margin-top: 80px;
   }
 
   h2.h2 {
     font-size: 1.75rem;
   }
+}
+
+/* Spotlight Hover Effect */
+.spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(300px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
+      rgba(13, 202, 240, 0.04),
+      transparent 40%);
+  mix-blend-mode: screen;
+}
+
+/* Hacker Theme Cheat Code */
+body.matrix-theme {
+  --bg-primary: #000000;
+  --bg-secondary: #050505;
+  --bg-tertiary: #0a0a0a;
+  --text-primary: #00ff00;
+  --text-secondary: #008800;
+  --accent-cyan: #00ff00;
+  --accent-purple: #00ff00;
+  --accent-cyan-glow: rgba(0, 255, 0, 0.5);
+  background-image: none !important;
+}
+
+body.matrix-theme .glass-panel {
+  background: rgba(0, 20, 0, 0.8) !important;
+  border-color: rgba(0, 255, 0, 0.3) !important;
+}
+
+body.matrix-theme .markdown-body {
+  background: #000 !important;
+  color: #00ff00 !important;
 }

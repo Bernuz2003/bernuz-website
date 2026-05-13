@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Section from '../components/Section';
 import TypographicList from '../components/TypographicList';
 import type { TypographicItem } from '../components/TypographicList';
+import ScrollReveal from '../components/ScrollReveal';
 import { projects } from '../data/projects';
 import { mlLabs } from '../data/mlLabs';
 import { competences } from '../data/competences';
@@ -54,19 +55,25 @@ export default function HomePage() {
       <Hero />
       
       <Section id="about" title="Chi sono" lead="">
-        <div className="mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', lineHeight: '1.8' }}>
-          <p className="text-secondary">Sono uno studente di Ingegneria Informatica al Politecnico di Torino, affascinato dalla capacità del software di modellare e risolvere problemi complessi.</p>
-          <p className="text-secondary mb-5">Questo spazio è il mio <strong>workspace digitale</strong>: esplora i laboratori di Machine Learning per vedere i miei lavori di classificazione, o le Web Apps per algoritmi interattivi. La combinazione di solide basi teoriche e interfacce moderne è il cuore di ogni mio progetto.</p>
-          
-          <h3 className="h6 text-uppercase text-info mt-5 mb-4 font-mono">Tech Stack</h3>
-          <div className="d-flex flex-wrap gap-2">
-            {competences.map((comp, idx) => (
-              <span key={idx} className="badge bg-transparent border border-secondary text-light font-mono px-3 py-2">
-                {comp.title}
-              </span>
-            ))}
+        <ScrollReveal>
+          <div className="mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', lineHeight: '1.8' }}>
+            <p className="text-secondary">Sono uno studente di Ingegneria Informatica al Politecnico di Torino, affascinato dalla capacità del software di modellare e risolvere problemi complessi.</p>
+            <p className="text-secondary mb-5">Questo spazio è il mio <strong>workspace digitale</strong>: esplora i laboratori di Machine Learning per vedere i miei lavori di classificazione, o le Web Apps per algoritmi interattivi. La combinazione di solide basi teoriche e interfacce moderne è il cuore di ogni mio progetto.</p>
           </div>
-        </div>
+        </ScrollReveal>
+        
+        <ScrollReveal delay={0.2}>
+          <div className="mx-auto" style={{ maxWidth: '800px' }}>
+            <h3 className="h6 text-uppercase text-info mt-5 mb-4 font-mono">Tech Stack</h3>
+            <div className="d-flex flex-wrap gap-2">
+              {competences.map((comp, idx) => (
+                <span key={idx} className="badge bg-transparent border border-secondary text-light font-mono px-3 py-2">
+                  {comp.title}
+                </span>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </Section>
 
       <Section 
