@@ -3,27 +3,145 @@
 /* KaTeX */
 @import "katex/dist/katex.min.css";
 
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --accent-cyan: #0dcaf0;
+  --accent-cyan-glow: rgba(13, 202, 240, 0.4);
+  --accent-purple: #8b5cf6;
+  --accent-purple-glow: rgba(139, 92, 246, 0.4);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
 .markdown-body {
   color-scheme: dark;
 }
 
 body {
-  background-color: #0f1115;
-  color: #e2e8f0;
-  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(13, 202, 240, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Utilities Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CRT Easter Egg Mode */
+.crt-mode {
+  animation: crt-flicker 0.15s infinite;
+}
+
+.crt-mode::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 50, 18, 0.15); /* Tinta verde molto leggera globale */
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.crt-mode::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), 
+    linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.08));
+  z-index: 9999;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  box-shadow: inset 0 0 100px rgba(0, 255, 0, 0.1);
+}
+
+.crt-mode * {
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.4), 0 0 8px rgba(0, 255, 0, 0.2) !important;
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.95; }
+  50% { opacity: 0.85; }
+  100% { opacity: 1; }
 }
 
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-.hero-gradient {
-  background: radial-gradient(circle at 30% 30%, #1d2735 0%, #0f1115 70%);
+.hover-white:hover {
+  color: #fff !important;
+  text-decoration: none;
 }
 
-.card-glow:hover { box-shadow: 0 0 0.75rem rgba(56, 189, 248, 0.3); }
+.hero-gradient {
+  background: transparent;
+}
 
-.badge-tech { background:#1b2532; color:#8fb9dd; border:1px solid #243243; font-size: .65rem; letter-spacing:.5px; }
+.card-glow:hover { 
+  box-shadow: 0 0 20px var(--accent-cyan-glow); 
+  border-color: var(--accent-cyan);
+}
+
+.badge-tech { 
+  background: rgba(13, 202, 240, 0.05); 
+  color: var(--accent-cyan); 
+  border: 1px solid rgba(13, 202, 240, 0.2); 
+  font-size: .75rem; 
+  letter-spacing: .5px; 
+  font-family: var(--font-mono);
+  padding: 0.3em 0.6em;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.badge-tech:hover {
+  background: rgba(13, 202, 240, 0.1);
+  box-shadow: 0 0 10px var(--accent-cyan-glow);
+}
 
 .section-padding { padding-top:4rem; padding-bottom:4rem; }
 
@@ -31,8 +149,9 @@ a:hover { text-decoration: underline; }
 /* Stile markdown (minimal) */
 .markdown-body {
   line-height: 1.65;
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-size: 0.95rem;
+  font-family: var(--font-sans);
 }
 .markdown-body h1, .markdown-body h2, .markdown-body h3 {
   margin-top: 2rem;

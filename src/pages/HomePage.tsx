@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import '../styles/HomePage.css';
 import Hero from '../components/Hero';
 import Section from '../components/Section';
-import ProjectsGrid from '../components/ProjectsGrid';
-import MLGrid from '../components/MLGrid';
-import CompetencesGrid from '../components/CompetencesGrid';
+import TypographicList from '../components/TypographicList';
+import type { TypographicItem } from '../components/TypographicList';
+import { projects } from '../data/projects';
+import { mlLabs } from '../data/mlLabs';
 import { competences } from '../data/competences';
 
 export default function HomePage() {
-
   const form = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -19,111 +18,102 @@ export default function HomePage() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.current) return;
-
     setIsSending(true);
     setError(null);
     setIsSent(false);
 
-    const serviceID = 'service_sjd3ku4';
-    const templateID = 'template_1akquw8';
-    const publicKey = '1_0E712SRg_gpF4w-';
-
-    emailjs.sendForm(serviceID, templateID, form.current, publicKey)
+    emailjs.sendForm('service_sjd3ku4', 'template_1akquw8', form.current, '1_0E712SRg_gpF4w-')
       .then(() => {
         setIsSent(true);
         form.current?.reset();
       }, (error) => {
         console.error('FAILED...', error);
-        setError('Impossibile inviare il messaggio. Riprova più tardi.');
+        setError('Impossibile inviare il messaggio.');
       })
-      .finally(() => {
-        setIsSending(false);
-      });
+      .finally(() => setIsSending(false));
   };
+
+  const projectItems: TypographicItem[] = projects.map(p => ({
+    title: p.title,
+    slug: p.slug,
+    description: p.description,
+    techStack: p.techStack,
+    link: `/projects/${p.slug}`
+  }));
+
+  const mlItems: TypographicItem[] = mlLabs.map(l => ({
+    title: l.title,
+    slug: l.slug,
+    description: l.teaser || l.description,
+    techStack: l.tags,
+    link: `/ml-labs/${l.slug}`
+  }));
 
   return (
     <>
       <Hero />
+      
       <Section id="about" title="Chi sono" lead="">
-        <p className="text-secondary">Sono uno studente di Ingegneria Informatica al Politecnico di Torino, affascinato dalla capacità del software di modellare e risolvere problemi complessi. La mia curiosità mi spinge a esplorare l'informatica in tutte le sue forme, dai meccanismi interni di un sistema operativo fino alle architetture di intelligenza artificiale.</p>
-        <p className="text-secondary">Questo sito è il mio taccuino digitale: una raccolta di progetti nati per dare una forma concreta a concetti teorici. Qui troverai esperimenti che spaziano dalla visualizzazione di algoritmi alla classificazione biometrica, riflettendo un percorso che unisce la programmazione di sistema, le reti e l'analisi dei dati.</p>
-        <p className="text-secondary">Ogni progetto è un'opportunità per imparare e applicare una visione d'insieme. Sebbene il mio interesse attuale sia rivolto principalmente al Machine Learning, credo che le soluzioni più innovative nascano dall'intersezione di discipline diverse. Spero che questa raccolta possa essere uno spunto di ispirazione.</p>
-
-        {/* Competenze grid */}
-        <h3 className="h6 text-uppercase text-info mt-5 mb-3">Competenze principali</h3>
-        <CompetencesGrid competences={competences} />
+        <div className="mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', lineHeight: '1.8' }}>
+          <p className="text-secondary">Sono uno studente di Ingegneria Informatica al Politecnico di Torino, affascinato dalla capacità del software di modellare e risolvere problemi complessi.</p>
+          <p className="text-secondary mb-5">Questo spazio è il mio <strong>workspace digitale</strong>: esplora i laboratori di Machine Learning per vedere i miei lavori di classificazione, o le Web Apps per algoritmi interattivi. La combinazione di solide basi teoriche e interfacce moderne è il cuore di ogni mio progetto.</p>
+          
+          <h3 className="h6 text-uppercase text-info mt-5 mb-4 font-mono">Tech Stack</h3>
+          <div className="d-flex flex-wrap gap-2">
+            {competences.map((comp, idx) => (
+              <span key={idx} className="badge bg-transparent border border-secondary text-light font-mono px-3 py-2">
+                {comp.title}
+              </span>
+            ))}
+          </div>
+        </div>
       </Section>
 
       <Section 
-        id="ml" 
-        title="Machine Learning Labs" 
+        id="selected-works" 
+        title="Selected Works" 
         lead=""
-        className="home-carousel-section" // <-- Aggiungi questa classe
         titleAction={
-          <Link to="/ml-labs" className="btn btn-outline-info btn-sm">
-            Vedi tutti &rarr;
-          </Link>
+          <div className="d-flex gap-3">
+            <Link to="/ml-labs" className="btn btn-outline-secondary btn-sm font-mono">ML Labs &rarr;</Link>
+            <Link to="/projects" className="btn btn-outline-info btn-sm font-mono">Web Apps &rarr;</Link>
+          </div>
         }
       >
-        <p className="text-secondary">La sezione Machine Learning Labs presenta un percorso didattico completo attraverso 8 laboratori pratici che coprono l'intero spettro del machine learning moderno: dai fondamenti statistici e classificatori gaussiani (Lab 1-3), ai modelli discriminativi avanzati come regressione logistica e SVM (Lab 4-6), fino ai sofisticati Gaussian Mixture Models (Lab 7) e alle tecniche di calibrazione e fusione per l'ottimizzazione finale (Lab 8). Ogni laboratorio combina teoria rigorosa, implementazione pratica e analisi sperimentale approfondita su dataset reali, offrendo una formazione completa dal machine learning teorico alle applicazioni industriali moderne.</p>
-        <p className="text-secondary">
-          <strong>Codice Sorgente Labs:</strong>{" "}
-          <a
-            href="https://github.com/Bernuz2003/MachineLearning-Labs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-info text-decoration-none"
-          >GitHub</a>
-        </p>
-        <p className="text-secondary">
-          <strong>Appunti Teorici:</strong>{" "}
-          <a
-            href="/mlLabs_data/Appunti_ML.pdf"
-            download="Appunti_ML.pdf"
-            className="text-info text-decoration-none"
-          >Appunti_ML.pdf</a>
-        </p>
-        <MLGrid limit={3} />
-      </Section>
-
-      <Section 
-        id="projects" 
-        title="Web Applications" 
-        lead=""
-        className="home-carousel-section" // <-- Aggiungi questa classe
-        titleAction={
-          <Link to="/projects" className="btn btn-outline-info btn-sm">
-            Vedi tutti &rarr;
-          </Link>
-        }
-      >
-        <p className="text-secondary">Esplora una collezione di applicazioni web interattive progettate per rendere tangibili concetti algoritmici complessi. Dai visualizzatori di algoritmi di ordinamento che mostrano in tempo reale il comportamento di QuickSort e MergeSort, ai simulatori di pathfinding che illustrano A* e Dijkstra in azione, fino a semplici giochi educativi che combinano divertimento e apprendimento informatico.</p>
-
-        <ProjectsGrid limit={3} />
+        <div className="mt-4">
+          <h3 className="h5 text-secondary mb-3 font-mono">/ Machine Learning</h3>
+          <TypographicList items={mlItems} limit={2} />
+          
+          <h3 className="h5 text-secondary mt-5 mb-3 font-mono">/ Web Applications</h3>
+          <TypographicList items={projectItems} limit={2} />
+        </div>
       </Section>
 
       <Section id="contact" title="Contattami" lead="">
-        <p className="text-secondary">Hai un progetto in mente o vuoi semplicemente salutarmi? Scrivi qui sotto.</p>
-        <div className="contact-form-container">
-          <form ref={form} onSubmit={sendEmail} className="contact-form">
-            <div className="form-group">
-              <label htmlFor="user_name">Nome</label>
-              <input type="text" name="user_name" id="user_name" className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="user_email">Email</label>
-              <input type="email" name="user_email" id="user_email" className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Messaggio</label>
-              <textarea name="message" id="message" rows={5} className="form-control" required></textarea>
-            </div>
-            <button type="submit" className="btn btn-info text-dark fw-semibold" disabled={isSending}>
-              {isSending ? 'Invio in corso...' : 'Invia Messaggio'}
-            </button>
-          </form>
-          {isSent && <p className="text-success mt-3">Messaggio inviato con successo!</p>}
-          {error && <p className="text-danger mt-3">{error}</p>}
+        <div className="mx-auto" style={{ maxWidth: '600px' }}>
+          <p className="text-secondary mb-4 text-center">Hai un progetto in mente o vuoi semplicemente salutarmi? Usa il form qui sotto o usa lo script <code className="text-info">contact.sh</code>.</p>
+          
+          <div className="glass-panel p-4 p-md-5">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="mb-4">
+                <label className="form-label text-secondary font-mono small">NOME</label>
+                <input type="text" name="user_name" className="form-control bg-transparent text-light border-secondary" required />
+              </div>
+              <div className="mb-4">
+                <label className="form-label text-secondary font-mono small">EMAIL</label>
+                <input type="email" name="user_email" className="form-control bg-transparent text-light border-secondary" required />
+              </div>
+              <div className="mb-4">
+                <label className="form-label text-secondary font-mono small">MESSAGGIO</label>
+                <textarea name="message" rows={4} className="form-control bg-transparent text-light border-secondary" required></textarea>
+              </div>
+              <button type="submit" className="btn btn-info w-100 fw-bold" disabled={isSending}>
+                {isSending ? 'Invio in corso...' : 'Invia Messaggio'}
+              </button>
+            </form>
+            {isSent && <p className="text-success mt-3 text-center font-mono">&gt; [OK] Messaggio inviato con successo.</p>}
+            {error && <p className="text-danger mt-3 text-center font-mono">&gt; [ERROR] {error}</p>}
+          </div>
         </div>
       </Section>
     </>

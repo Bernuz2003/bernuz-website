@@ -7,17 +7,16 @@ interface Props {
 export default function CompetencesGrid({ competences }: Props) {
   return (
     <div className="competences-grid">
-      {competences.map((c, idx) => {
-        const Icon = c.icon;
+      {competences.map((comp, idx) => {
+        const Icon = comp.icon;
         return (
-          <div key={idx} className="col">
-            <div className="competence-card">
-              <div className="competence-icon">
-                <Icon aria-hidden="true" />
-              </div>
-              <div>
-                <strong>{c.title}:</strong> {c.detail}
-              </div>
+          <div key={idx} className="competence-card glass-panel">
+            <div className="competence-icon">
+              <Icon />
+            </div>
+            <div>
+              <span className="font-mono text-gradient fw-bold d-block">{comp.title}</span>
+              <span className="text-secondary small">{comp.detail}</span>
             </div>
           </div>
         );

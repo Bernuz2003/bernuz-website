@@ -21,19 +21,22 @@ export default function SiteNavbar() {
   };
 
   return (
-    <Navbar expanded={expanded} expand="lg" bg="dark" variant="dark" fixed="top" className="border-bottom border-secondary" style={{ backdropFilter: 'blur(6px)', background: 'rgba(17,21,27,0.90)' }}>
-      <Container>
-        <Navbar.Brand as={Link} to="/" onClick={close}>Bernuz<span className="text-info">.dev</span></Navbar.Brand>
+    <div className="fixed-top w-100 d-flex justify-content-center mt-3 mt-md-4 px-3" style={{ zIndex: 1030, pointerEvents: 'none' }}>
+      <Navbar expanded={expanded} expand="lg" variant="dark" className="glass-panel py-2 px-4 shadow-lg w-100" style={{ maxWidth: '900px', pointerEvents: 'auto' }}>
+        <Navbar.Brand as={Link} to="/" onClick={close} className="font-mono fw-bold">Bernuz<span className="text-info">.dev</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="mainnav" onClick={() => setExpanded(prev => !prev)} />
         <Navbar.Collapse id="mainnav">
           <Nav className="ms-auto gap-lg-2">
             <Nav.Link onClick={() => handleScrollToSection('about')}>Chi sono</Nav.Link>
-            <Nav.Link onClick={() => handleScrollToSection('ml')}>ML</Nav.Link>
-            <Nav.Link onClick={() => handleScrollToSection('projects')}>Web Apps</Nav.Link>
+            <Nav.Link as={Link} to="/ml-labs" onClick={close}>ML Labs</Nav.Link>
+            <Nav.Link as={Link} to="/projects" onClick={close}>Web Apps</Nav.Link>
             <Nav.Link onClick={() => handleScrollToSection('contact')}>Contatti</Nav.Link>
           </Nav>
+          <div className="d-none d-lg-block ms-4 ps-4 border-start border-secondary">
+            <span className="badge bg-secondary text-dark font-mono">⌘K</span>
+          </div>
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      </Navbar>
+    </div>
   );
 }

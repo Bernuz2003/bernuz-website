@@ -5,18 +5,20 @@ import './../styles/Projects.css';
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="project-card">
+    <Card className="project-card glass-panel h-100">
       {project.image && (
         <div className="project-image-container">
           <img src={project.image} alt={project.title} className="project-image" />
         </div>
       )}
-      <Card.Body className="project-card-body">
-        <Card.Title className="project-card-title">{project.title}</Card.Title>
+      <Card.Body className="project-card-body d-flex flex-column">
+        <Card.Title className="project-card-title font-mono">{project.title}</Card.Title>
         <Card.Text className="project-card-description">{project.description}</Card.Text>
-        <div className="project-tech-container">
+        <div className="project-tech-container mt-auto">
           {project.tech.map(t => (
-            <span key={t} className="project-tech-badge">{t}</span>
+            <span key={t} className="badge-tech d-inline-block me-1 mb-1">
+              &lt;{t} /&gt;
+            </span>
           ))}
         </div>
         <div className="project-buttons">

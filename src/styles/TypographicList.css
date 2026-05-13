@@ -1,0 +1,35 @@
+.typographic-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.typographic-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 1rem 1rem;
+  margin: 0 -1rem;
+}
+
+.typographic-row:last-child {
+  border-bottom: none;
+}
+
+.title-transition {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effects */
+.typographic-row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.typographic-row:hover .title-transition {
+  color: #0dcaf0 !important; /* text-info color */
+  transform: translateX(5px);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -1,9 +1,11 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Section from '../components/Section';
 import { mlLabs } from '../data/mlLabs';
-import { Spinner, Button } from 'react-bootstrap';
+import Section from '../components/Section';
+import { Button, Spinner } from 'react-bootstrap';
 import Markdown from '../components/Markdown';
+import TypographicList from '../components/TypographicList';
+import type { TypographicItem } from '../components/TypographicList';
 
 export default function MLLabDetailPage() {
   const { slug } = useParams();
@@ -34,28 +36,54 @@ export default function MLLabDetailPage() {
     );
   }
 
+  const mlItems: TypographicItem[] = mlLabs.map(l => ({
+    title: l.title,
+    slug: l.slug,
+    link: `/ml-labs/${l.slug}`
+  }));
+
   return (
-    <Section title={lab.title} lead="" className='page-header-section'>
+    <Section title="Machine Learning Labs" lead="Esplora i laboratori pratici completi sui classificatori statistici e discriminativi." className='page-header-section'>
+      <div className="row mt-5">
+        <div className="col-lg-4 pe-lg-4 d-none d-lg-block" style={{ borderRight: '1px solid rgba(255,255,255,0.05)' }}>
+          <h4 className="h6 text-secondary text-uppercase mb-4 font-mono">Index</h4>
+          <TypographicList items={mlItems} />
+        </div>
+        
+        <div className="col-lg-8 ps-lg-5 mt-4 mt-lg-0">
+          <Button onClick={() => navigate('/ml-labs')} variant="link" className="text-secondary p-0 mb-4 font-mono d-lg-none text-decoration-none">
+            ← Torna all'elenco
+          </Button>
 
-      {/* tag tech */}
-      <div className="mb-4 d-flex gap-2 flex-wrap">
-        {lab.tags.map(t => (
-          <span key={t} className="badge-tech badge rounded-pill px-3 py-2">
-            {t}
-          </span>
-        ))}
-      </div>
+          <h2 className="text-info mb-4">{lab.title}</h2>
+          
+          <div className="mb-4 d-flex gap-2 flex-wrap">
+            {lab.tags.map(t => (
+              <span key={t} className="badge bg-transparent border border-secondary text-light font-mono px-3 py-2">
+                {t}
+              </span>
+            ))}
+          </div>
 
-      {!md ? (
-        <Spinner animation="border" variant="info" />
-      ) : (
-        <Markdown source={md} />
-      )}
+          <div className="d-flex gap-3 flex-wrap mt-4 mb-5 pb-4 border-bottom border-secondary">
+            <Button href={lab.repoUrl} target="_blank" variant="outline-light" className="font-mono">
+              Codice Sorgente
+            </Button>
+            <Button href="/mlLabs_data/Appunti_ML.pdf" download="Appunti_ML.pdf" variant="outline-info" className="font-mono">
+              Appunti Teorici
+            </Button>
+          </div>
 
-      <div className="d-flex gap-3 flex-wrap mt-4">
-        <Button onClick={() => navigate('/ml-labs')} variant="outline-light">
-          ← Indietro
-        </Button>
+          {lab.mdPath && (
+            <div className="markdown-body">
+              {!md ? (
+                <Spinner animation="border" variant="info" />
+              ) : (
+                <Markdown source={md} />
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </Section>
   );

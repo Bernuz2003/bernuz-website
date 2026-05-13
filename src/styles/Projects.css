@@ -1,19 +1,16 @@
 /* ProjectCard Styles */
 .card.project-card {
-  height: 100%;
-  background-color: #151a21; /* Colore di sfondo scuro */
-  border: 1px solid #243243; /* Bordo coerente con il tema */
-  border-radius: 0.5rem;
+  background-color: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
-  max-width: 95%;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  color: #e2e8f0; /* Colore del testo di default per la card */
+  max-width: 100%;
+  color: var(--text-primary);
+  overflow: hidden;
 }
 
 .card.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 217, 255, 0.15);
+  transform: translateY(-8px) scale(1.01);
 }
 
 .project-image-container {
@@ -106,8 +103,19 @@
 /* ProjectsGrid Styles */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  align-items: stretch;
+}
+
+.projects-grid-item:nth-child(3n+1) {
+  grid-column: span 1;
+}
+
+@media (min-width: 992px) {
+  .projects-grid-item:nth-child(4n+1) {
+    grid-column: span 2;
+  }
 }
 
 /* Stile carosello SOLO per la HomePage su mobile */
@@ -151,7 +159,8 @@
 }
 
 .projects-grid-item {
-  /* Nessuno stile specifico necessario qui */
+  display: flex;
+  height: 100%;
 }
 
 /* ProjectDetailPage Styles */
