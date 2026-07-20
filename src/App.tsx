@@ -5,10 +5,8 @@ import SiteNavbar from './components/SiteNavbar';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
 import HomePage from './pages/HomePage.tsx';
-import ProjectsPage from './pages/ProjectsPage.tsx';
-import MLLabDetailPage from './pages/MLLabDetailPage.tsx';
-import MLLabsPage from './pages/MLLabsPage.tsx'; 
-import ProjectDetailPage from './pages/ProjectDetailPage.tsx';
+import WorkPage from './pages/WorkPage.tsx';
+import WorkDetailPage from './pages/WorkDetailPage.tsx';
 import ProgressBar from './components/ProgressBar.tsx';
 import TerminalDrawer from './components/TerminalDrawer.tsx';
 import MatrixRain from './components/MatrixRain.tsx';
@@ -21,10 +19,8 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-        <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
-        <Route path="/projects/:slug" element={<PageTransition><ProjectDetailPage /></PageTransition>} />
-        <Route path="/ml-labs" element={<PageTransition><MLLabsPage /></PageTransition>} /> 
-        <Route path="/ml-labs/:slug" element={<PageTransition><MLLabDetailPage /></PageTransition>} />
+        <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
+        <Route path="/work/:slug" element={<PageTransition><WorkDetailPage /></PageTransition>} />
         <Route path="*" element={
           <PageTransition>
             <div className="container pt-5 text-center">

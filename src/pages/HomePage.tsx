@@ -6,8 +6,7 @@ import Section from '../components/Section';
 import TypographicList from '../components/TypographicList';
 import type { TypographicItem } from '../components/TypographicList';
 import ScrollReveal from '../components/ScrollReveal';
-import { projects } from '../data/projects';
-import { mlLabs } from '../data/mlLabs';
+import { workItems } from '../data/workItems';
 import { competences } from '../data/competences';
 
 export default function HomePage() {
@@ -38,21 +37,27 @@ export default function HomePage() {
       .finally(() => setIsSending(false));
   };
 
-  const projectItems: TypographicItem[] = projects.map(p => ({
-    title: p.title,
-    slug: p.slug,
-    description: p.description,
-    techStack: p.tech,
-    link: `/projects/${p.slug}`
-  }));
+  const featuredWork: TypographicItem[] = workItems
+    .filter(w => w.featured)
+    .slice(0, 3)
+    .map(p => ({
+      title: p.title,
+      slug: p.slug,
+      description: p.description,
+      techStack: p.tech,
+      link: `/work/${p.slug}`
+    }));
 
-  const mlItems: TypographicItem[] = mlLabs.map(l => ({
-    title: l.title,
-    slug: l.slug,
-    description: l.teaser,
-    techStack: l.tags,
-    link: `/ml-labs/${l.slug}`
-  }));
+  const otherWork: TypographicItem[] = workItems
+    .filter(w => !w.featured)
+    .slice(0, 3)
+    .map(p => ({
+      title: p.title,
+      slug: p.slug,
+      description: p.description,
+      techStack: p.tech,
+      link: `/work/${p.slug}`
+    }));
 
   return (
     <>
@@ -62,7 +67,7 @@ export default function HomePage() {
         <ScrollReveal>
           <div className="mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', lineHeight: '1.8' }}>
             <p className="text-secondary">Sono uno studente di Ingegneria Informatica al Politecnico di Torino, affascinato dalla capacità del software di modellare e risolvere problemi complessi.</p>
-            <p className="text-secondary mb-5">Questo spazio è il mio <strong>workspace digitale</strong>: esplora i laboratori di Machine Learning per vedere i miei lavori di classificazione, o le Web Apps per algoritmi interattivi. La combinazione di solide basi teoriche e interfacce moderne è il cuore di ogni mio progetto.</p>
+            <p className="text-secondary mb-5">Questo spazio è il mio <strong>workspace digitale</strong>: esplora i case studies, esperimenti di Machine Learning e le Web Apps interattive. La combinazione di solide basi teoriche e interfacce moderne è il cuore di ogni mio progetto.</p>
           </div>
         </ScrollReveal>
         
@@ -82,21 +87,20 @@ export default function HomePage() {
 
       <Section 
         id="selected-works" 
-        title="Selected Works" 
+        title="Selected Work" 
         lead=""
         titleAction={
           <div className="d-flex gap-3">
-            <Link to="/ml-labs" className="btn btn-outline-secondary btn-sm font-mono">ML Labs &rarr;</Link>
-            <Link to="/projects" className="btn btn-outline-info btn-sm font-mono">Web Apps &rarr;</Link>
+            <Link to="/work" className="btn btn-outline-info btn-sm font-mono">View All Work &rarr;</Link>
           </div>
         }
       >
         <div className="mt-4">
-          <h3 className="h5 text-secondary mb-3 font-mono">/ Machine Learning</h3>
-          <TypographicList items={mlItems} limit={2} />
+          <h3 className="h5 text-secondary mb-3 font-mono">/ Featured Case Studies</h3>
+          <TypographicList items={featuredWork} />
           
-          <h3 className="h5 text-secondary mt-5 mb-3 font-mono">/ Web Applications</h3>
-          <TypographicList items={projectItems} limit={2} />
+          <h3 className="h5 text-secondary mt-5 mb-3 font-mono">/ Recent Projects</h3>
+          <TypographicList items={otherWork} />
         </div>
       </Section>
 

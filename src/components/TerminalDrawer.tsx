@@ -32,21 +32,21 @@ export default function TerminalDrawer() {
     if (e.key === 'Enter') {
       const cmd = input.trim();
       setInput('');
-      
+
       const newHistory = [...history, { type: 'input' as const, text: cmd }];
-      
+
       if (cmd === 'clear') {
         setHistory([]);
         return;
       }
-      
+
       let output = '';
-      switch(cmd.toLowerCase()) {
+      switch (cmd.toLowerCase()) {
         case 'help': output = 'Comandi disponibili: whoami, ls, clear, matrix, exit'; break;
-        case 'whoami': output = 'Emanuele Bernucci - Studente di Ingegneria Informatica e ML Enthusiast'; break;
+        case 'whoami': output = 'Emanuele Bernacchi - Studente di Ingegneria Informatica e ML Enthusiast'; break;
         case 'ls': output = 'projects/  ml-labs/  resume.pdf  secret.txt'; break;
         case 'exit': setIsOpen(false); break;
-        case 'matrix': 
+        case 'matrix':
           document.body.classList.toggle('matrix-rain-active');
           output = 'Wake up, Neo...';
           break;
@@ -91,57 +91,57 @@ export default function TerminalDrawer() {
 
       <AnimatePresence>
         {isOpen && (
-        <motion.div
-          initial={{ y: '100%' }}
-          animate={{ y: 0 }}
-          exit={{ y: '100%' }}
-          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          style={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '30vh',
-            minHeight: '200px',
-            backgroundColor: 'rgba(5, 5, 5, 0.95)',
-            backdropFilter: 'blur(10px)',
-            borderTop: '1px solid rgba(13, 202, 240, 0.2)',
-            zIndex: 9999,
-            padding: '1rem',
-            fontFamily: 'monospace',
-            display: 'flex',
-            flexDirection: 'column',
-            boxShadow: '0 -10px 40px rgba(0,0,0,0.5)'
-          }}
-        >
-          <div className="d-flex justify-content-between mb-2 pb-2 border-bottom border-secondary">
-            <span className="text-secondary small">~/portfolio/hidden-shell</span>
-            <span className="text-secondary cursor-pointer" onClick={() => setIsOpen(false)}>✕</span>
-          </div>
-          
-          <div className="flex-grow-1 overflow-auto d-flex flex-column gap-1" style={{ fontSize: '0.9rem' }}>
-            {history.map((h, i) => (
-              <div key={i} className={h.type === 'input' ? 'text-light' : 'text-info'}>
-                {h.type === 'input' ? <span className="text-secondary me-2">$</span> : null}
-                {h.text}
-              </div>
-            ))}
-          </div>
-          
-          <div className="d-flex mt-2">
-            <span className="text-secondary me-2">$</span>
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleCommand}
-              className="bg-transparent border-0 text-light flex-grow-1 outline-none"
-              style={{ outline: 'none' }}
-              spellCheck={false}
-            />
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '30vh',
+              minHeight: '200px',
+              backgroundColor: 'rgba(5, 5, 5, 0.95)',
+              backdropFilter: 'blur(10px)',
+              borderTop: '1px solid rgba(13, 202, 240, 0.2)',
+              zIndex: 9999,
+              padding: '1rem',
+              fontFamily: 'monospace',
+              display: 'flex',
+              flexDirection: 'column',
+              boxShadow: '0 -10px 40px rgba(0,0,0,0.5)'
+            }}
+          >
+            <div className="d-flex justify-content-between mb-2 pb-2 border-bottom border-secondary">
+              <span className="text-secondary small">~/portfolio/hidden-shell</span>
+              <span className="text-secondary cursor-pointer" onClick={() => setIsOpen(false)}>✕</span>
+            </div>
+
+            <div className="flex-grow-1 overflow-auto d-flex flex-column gap-1" style={{ fontSize: '0.9rem' }}>
+              {history.map((h, i) => (
+                <div key={i} className={h.type === 'input' ? 'text-light' : 'text-info'}>
+                  {h.type === 'input' ? <span className="text-secondary me-2">$</span> : null}
+                  {h.text}
+                </div>
+              ))}
+            </div>
+
+            <div className="d-flex mt-2">
+              <span className="text-secondary me-2">$</span>
+              <input
+                ref={inputRef}
+                type="text"
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={handleCommand}
+                className="bg-transparent border-0 text-light flex-grow-1 outline-none"
+                style={{ outline: 'none' }}
+                spellCheck={false}
+              />
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

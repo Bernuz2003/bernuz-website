@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { projects } from '../data/projects';
-import { mlLabs } from '../data/mlLabs';
+import { workItems } from '../data/workItems';
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
@@ -33,8 +32,7 @@ export default function CommandPalette() {
 
   const staticCommands = [
     { name: 'Home', action: () => navigate('/') },
-    { name: 'Machine Learning Labs', action: () => navigate('/ml-labs') },
-    { name: 'Web Applications', action: () => navigate('/projects') },
+    { name: 'Portfolio (Work)', action: () => navigate('/work') },
     { name: 'Contatti', action: () => { navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'}), 100) } },
     { name: 'Toggle CRT Mode', action: () => { 
       document.body.classList.toggle('crt-mode'); 
@@ -51,17 +49,12 @@ export default function CommandPalette() {
     } }
   ];
 
-  const projectCommands = projects.map(p => ({
-    name: `App: ${p.title}`,
-    action: () => navigate(`/projects/${p.slug}`)
+  const projectCommands = workItems.map(w => ({
+    name: `Work: ${w.title} (${w.domain})`,
+    action: () => navigate(`/work/${w.slug}`)
   }));
 
-  const mlCommands = mlLabs.map(l => ({
-    name: `Lab: ${l.title}`,
-    action: () => navigate(`/ml-labs/${l.slug}`)
-  }));
-
-  const allCommands = [...staticCommands, ...projectCommands, ...mlCommands];
+  const allCommands = [...staticCommands, ...projectCommands];
 
   // Mostra solo i comandi principali all'avvio (query vuota)
   const commandsToShow = query.trim() === '' 

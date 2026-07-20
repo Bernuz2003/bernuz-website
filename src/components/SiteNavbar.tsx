@@ -27,10 +27,9 @@ export default function SiteNavbar() {
         <Navbar.Toggle aria-controls="mainnav" onClick={() => setExpanded(prev => !prev)} />
         <Navbar.Collapse id="mainnav">
           <Nav className="ms-auto gap-lg-2">
-            <Nav.Link onClick={() => handleScrollToSection('about')}>Chi sono</Nav.Link>
-            <Nav.Link as={Link} to="/ml-labs" onClick={close}>ML Labs</Nav.Link>
-            <Nav.Link as={Link} to="/projects" onClick={close}>Web Apps</Nav.Link>
-            <Nav.Link onClick={() => handleScrollToSection('contact')}>Contatti</Nav.Link>
+            <Nav.Link as={Link} to="/work" onClick={close}>Work</Nav.Link>
+            <Nav.Link onClick={() => handleScrollToSection('about')}>About</Nav.Link>
+            <Nav.Link onClick={() => handleScrollToSection('contact')}>Contact</Nav.Link>
           </Nav>
           <div className="d-none d-lg-block ms-4 ps-4 border-start border-secondary">
             <span className="badge bg-secondary text-dark font-mono">⌘K</span>
