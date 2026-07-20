@@ -23,7 +23,11 @@ export default function HomePage() {
     setError(null);
     setIsSent(false);
 
-    emailjs.sendForm('service_sjd3ku4', 'template_1akquw8', form.current, '1_0E712SRg_gpF4w-')
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_sjd3ku4';
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_1akquw8';
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '1_0E712SRg_gpF4w-';
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
       .then(() => {
         setIsSent(true);
         form.current?.reset();
@@ -38,14 +42,14 @@ export default function HomePage() {
     title: p.title,
     slug: p.slug,
     description: p.description,
-    techStack: p.techStack,
+    techStack: p.tech,
     link: `/projects/${p.slug}`
   }));
 
   const mlItems: TypographicItem[] = mlLabs.map(l => ({
     title: l.title,
     slug: l.slug,
-    description: l.teaser || l.description,
+    description: l.teaser,
     techStack: l.tags,
     link: `/ml-labs/${l.slug}`
   }));
@@ -103,16 +107,16 @@ export default function HomePage() {
           <div className="glass-panel p-4 p-md-5">
             <form ref={form} onSubmit={sendEmail}>
               <div className="mb-4">
-                <label className="form-label text-secondary font-mono small">NOME</label>
-                <input type="text" name="user_name" className="form-control bg-transparent text-light border-secondary" required />
+                <label htmlFor="user_name" className="form-label text-secondary font-mono small">NOME</label>
+                <input id="user_name" type="text" name="user_name" className="form-control bg-transparent text-light border-secondary" required />
               </div>
               <div className="mb-4">
-                <label className="form-label text-secondary font-mono small">EMAIL</label>
-                <input type="email" name="user_email" className="form-control bg-transparent text-light border-secondary" required />
+                <label htmlFor="user_email" className="form-label text-secondary font-mono small">EMAIL</label>
+                <input id="user_email" type="email" name="user_email" className="form-control bg-transparent text-light border-secondary" required />
               </div>
               <div className="mb-4">
-                <label className="form-label text-secondary font-mono small">MESSAGGIO</label>
-                <textarea name="message" rows={4} className="form-control bg-transparent text-light border-secondary" required></textarea>
+                <label htmlFor="message" className="form-label text-secondary font-mono small">MESSAGGIO</label>
+                <textarea id="message" name="message" rows={4} className="form-control bg-transparent text-light border-secondary" required></textarea>
               </div>
               <button type="submit" className="btn btn-info w-100 fw-bold" disabled={isSending}>
                 {isSending ? 'Invio in corso...' : 'Invia Messaggio'}

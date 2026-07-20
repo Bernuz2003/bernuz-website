@@ -8,7 +8,7 @@ export default function ProjectsPage() {
     title: p.title,
     slug: p.slug,
     description: p.description,
-    techStack: p.techStack,
+    techStack: p.tech,
     link: `/projects/${p.slug}`
   }));
 

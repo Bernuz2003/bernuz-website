@@ -5,6 +5,7 @@ import { Container, Button, Spinner } from 'react-bootstrap';
 import Markdown from '../components/Markdown';
 import TypographicList from '../components/TypographicList';
 import type { TypographicItem } from '../components/TypographicList';
+import Section from '../components/Section';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();

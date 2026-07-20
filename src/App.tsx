@@ -25,6 +25,14 @@ function AnimatedRoutes() {
         <Route path="/projects/:slug" element={<PageTransition><ProjectDetailPage /></PageTransition>} />
         <Route path="/ml-labs" element={<PageTransition><MLLabsPage /></PageTransition>} /> 
         <Route path="/ml-labs/:slug" element={<PageTransition><MLLabDetailPage /></PageTransition>} />
+        <Route path="*" element={
+          <PageTransition>
+            <div className="container pt-5 text-center">
+              <h2 className="text-info font-mono mb-4">404 - Not Found</h2>
+              <p className="text-secondary">La pagina che cerchi non esiste.</p>
+            </div>
+          </PageTransition>
+        } />
       </Routes>
     </AnimatePresence>
   );
@@ -32,9 +40,16 @@ function AnimatedRoutes() {
 
 export default function App() {
   useEffect(() => {
+    let ticking = false;
     const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+          document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);

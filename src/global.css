@@ -1,4 +1,4 @@
-@import 'github-markdown-css/github-markdown-light.css';
+@import 'github-markdown-css/github-markdown-dark.css';
 /* o dark */
 
 /* KaTeX */
@@ -224,8 +224,7 @@ a:hover {
 
 /* Offset per lo scroll con navbar fissa */
 #about,
-#ml,
-#projects,
+#selected-works,
 #contact {
   scroll-margin-top: 100px;
 }
@@ -246,8 +245,7 @@ a:hover {
   }
 
   #about,
-  #ml,
-  #projects,
+  #selected-works,
   #contact {
     scroll-margin-top: 80px;
   }

@@ -5,6 +5,7 @@ import { Container, Button, Spinner } from 'react-bootstrap';
 import Markdown from '../components/Markdown';
 import TypographicList from '../components/TypographicList';
 import type { TypographicItem } from '../components/TypographicList';
+import Section from '../components/Section';
 
 export default function MLLabDetailPage() {
   const { slug } = useParams();
@@ -68,7 +69,7 @@ export default function MLLabDetailPage() {
             <Button href={lab.repoUrl} target="_blank" variant="outline-light" className="font-mono">
               Codice Sorgente
             </Button>
-            <Button href="/mlLabs_data/Appunti_ML.pdf" download="Appunti_ML.pdf" variant="outline-info" className="font-mono">
+            <Button as="a" href="/mlLabs_data/Appunti_ML.pdf" download="Appunti_ML.pdf" variant="outline-info" className="font-mono">
               Appunti Teorici
             </Button>
           </div>

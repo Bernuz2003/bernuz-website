@@ -11,6 +11,8 @@ export default function TerminalDrawer() {
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
       if (e.key === '`' || e.key === '~' || e.key === '§') {
         e.preventDefault();
         setIsOpen(prev => !prev);

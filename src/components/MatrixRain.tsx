@@ -43,7 +43,15 @@ export default function MatrixRain() {
       drops[x] = 1;
     }
 
-    const draw = () => {
+    let animationFrameId: number;
+    let lastDraw = 0;
+
+    const draw = (timestamp: number) => {
+      animationFrameId = requestAnimationFrame(draw);
+      
+      if (timestamp - lastDraw < 33) return;
+      lastDraw = timestamp;
+
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -61,7 +69,7 @@ export default function MatrixRain() {
       }
     };
 
-    const interval = setInterval(draw, 33);
+    animationFrameId = requestAnimationFrame(draw);
     
     const handleResize = () => {
       canvas.width = window.innerWidth;
@@ -70,7 +78,7 @@ export default function MatrixRain() {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearInterval(interval);
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
     };
   }, [active]);
